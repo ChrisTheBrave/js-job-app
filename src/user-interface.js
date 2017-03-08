@@ -34,4 +34,18 @@
         });
       });
 
+
+      document.querySelector('form').addEventListener('submit',function applyNow(eventObj) {
+        eventObj.preventDefault();
+
+        console.log('APPLY NOW', eventObj);
+        window.jobApp.applyNow({
+          fullName: document.querySelector('#full-name').value,
+          yearsExperience: document.querySelector('#exp').value,
+          knownLanguages: document.querySelector('[name="languages"]').value,
+          workUrl: document.querySelector('[name="work-url"]').value
+        });
+
+      } );
+
 })();
