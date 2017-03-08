@@ -19,9 +19,19 @@
        eventObj.target.parentNode.childNodes[3].innerText = eventObj.target.value + ' years';
       console.log(eventObj.target.value);
    });
-    document.querySelector('#languages-js')
-      .addEventListener('click', function checkedBoxes(eventObj) {
 
-    });
+    let count = 0;
+    Array.from(document.querySelectorAll('[name="languages"]'))
+      .forEach(function addClickEvent(item) {
+        item.addEventListener('change', function checkedBoxes(eventObj) {
+          if (eventObj.target.checked) {
+            count++;
+          } else {
+            count--;
+          }
+          eventObj.target.parentNode.parentNode.childNodes[7].innerText = count + ' languages';
+          //console.log(eventObj.target.parentNode.parentNode.childNodes);
+        });
+      });
 
 })();
